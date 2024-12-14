@@ -1,8 +1,8 @@
-"""user, role table
+"""new password_hash
 
-Revision ID: 06179cedb04d
+Revision ID: 8a9ebb02266d
 Revises: 
-Create Date: 2024-12-13 16:54:48.847626
+Create Date: 2024-12-14 15:59:29.682953
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '06179cedb04d'
+revision = '8a9ebb02266d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,6 +28,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=64), nullable=True),
     sa.Column('role_id', sa.Integer(), nullable=True),
+    sa.Column('password_hash', sa.String(length=128), nullable=True),
     sa.ForeignKeyConstraint(['role_id'], ['roles.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
