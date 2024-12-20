@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flask_app - Login{% endblock %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>Login</h1>
+    </div>
+    <div class="col-md-4">
+        {{ wtf.quick_form(form) }}
+    </div>
+    <p>
+        Новый пользователь?
+        <a href="{{ url_for('auth.register') }}">Кликните тут, чтобы зарегистрироваться.</a>
+    </p>
+{% endblock %}
